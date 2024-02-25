@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true,
+    "populateCreatorFields": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "customDate": {
+      "type": "datetime"
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "badge": {
+      "type": "enumeration",
+      "enum": ["Website", "Game", "Both"]
+    },
+    "color": {
+      "type": "string",
+      "default": "#e2e8f0",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "badgePosition": {
+      "type": "enumeration",
+      "enum": [
+        "imageTopLeft",
+        "imageTopRight",
+        "imageBottomLeft",
+        "imageBottomRight",
+        "cardTopRight",
+        "cardTopLeft"
+      ],
+      "default": "cardTopRight"
+    }
+  }
+}

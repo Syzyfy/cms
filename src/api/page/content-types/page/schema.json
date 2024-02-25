@@ -22,18 +22,19 @@
       "target": "api::category.category",
       "inversedBy": "pages"
     },
-    "description": {
-      "type": "richtext"
-    },
     "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }

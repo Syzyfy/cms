@@ -1,22 +1,14 @@
 FROM node:18.19
-
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
-COPY . .
-
-# Expose port 1337
-EXPOSE 1337
-
-# Build the application
-RUN npm run build
-
-# Set the default command to run the application
-CMD ["npm", "start"]
+# Installing libvips-dev for sharp Compatability
+RUN apt-get update && apt-get install libvips-dev -y
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+WORKDIR /opt/
+COPY ./package.json ./yarn.lock ./
+ENV PATH /opt/node_modules/.bin:$PATH
+RUN yarn config set network-timeout 600000 -g && yarn install
+WORKDIR /opt/app
+COPY ./ .
+RUN yarn build
+EXPOSE ${PORT}
+CMD ["yarn", "start"]
