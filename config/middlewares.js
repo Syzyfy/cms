@@ -23,5 +23,5 @@ module.exports = [
   "strapi::favicon",
   "strapi::public",
 
-  { resolve: "../src/middlewares/admin-redirect.js" }
+  { resolve: 'src/middlewares/admin-redirect' }
 ];
