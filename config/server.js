@@ -1,6 +1,7 @@
 module.exports = ({ env }) => ({
   host: env("HOST"),
   port: env.int("PORT"),
+  url: "https://api.thefinalpath.net",
   app: {
     keys: env.array("APP_KEYS"),
   },
@@ -13,6 +14,7 @@ module.exports = ({ env }) => ({
         "Content-Type": "application/json",
       },
       body: {},
+      
     },
   },
 });

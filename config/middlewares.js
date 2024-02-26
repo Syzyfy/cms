@@ -8,8 +8,11 @@ module.exports = [
       header: ["Authorization", "Content-Type"],
       origin: [
         "http://localhost:3000",
+        "https://localhost",
+        "https://localhost:1337",
         "http://carpye.ddns.net:1337",
         "https://thefinalpath.vercel.app",
+        "https://api.thefinalpath.net"
       ],
     },
   },
@@ -19,4 +22,6 @@ module.exports = [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
+
+  { resolve: "../src/middlewares/admin-redirect.js" }
 ];
